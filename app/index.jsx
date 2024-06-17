@@ -35,33 +35,73 @@
 
 import React from "react";
 import { Text, View, Image } from "react-native";
-import {StatusBar} from "expo-status-bar"
-import {LinearGradient} from "expo-linear-gradient"
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
+import { StatusBar } from "expo-status-bar";
+import { LinearGradient } from "expo-linear-gradient";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 // import tailwindcss from "tailwindcss"
 import tw from "twrnc";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import Animated ,{ FadeIn, FadeInDown, FadeOut } from 'react-native-reanimated';
+import { useRouter } from "expo-router";
 
 export default function Index() {
+  const router = useRouter();
   return (
     <View style={{ flex: 1, justifyContent: "center" }}>
       <StatusBar barStyle="light-content" />
       <Image
-        style={{height:"100%", width: "100%", position: "absolute" }}
-        source={{ uri: 'https://i.pinimg.com/originals/79/23/a0/7923a02a292883a741bfa115374bacff.jpg' }}
+        style={{ height: "100%", width: "100%", position: "absolute" }}
+        source={{
+          uri: "https://i.pinimg.com/originals/79/23/a0/7923a02a292883a741bfa115374bacff.jpg",
+        }}
       />
-      <LinearGradient 
-      colors={['transparent', '#18181b']}
-      style={{width: wp(100) , height: hp(100), flex: 1, justifyContent: "end"}}
-      start={{x: 0.5, y: 0}}
-      end={{x: 0.5, y: 0.8}}
-     
-       >
-        <View className="text-center" style={tw`flex items-center`}>
-          <Text className="text-white" style={tw`text-6xl mb-2 font-bold`}>Hello Abhijeet</Text>
-          <Text className="text-red-500" style={tw`text-2xl mb-16`}>This is a Welcome to Fitness Club</Text>
-        </View>
-       </LinearGradient>
-    
+      <LinearGradient
+        colors={["transparent", "#18181b"]}
+        // style={{width: wp(100) , height: hp(100), flex: 1, justifyContent: "end"}}
+        style={[
+          tw`flex justify-end pb-12 space-y-8`,
+          { width: wp(100), height: hp(100) },
+        ]}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 0.8 }}
+      >
+        <Animated.View entering={FadeInDown.delay(100).springify()} style={tw`flex items-center mb-5`}>
+          <Text
+            style={[
+              tw`text-white   font-bold tracking-wide`,
+              { fontSize: hp(5) },
+            ]}
+          >
+            Best<Text style={tw`text-rose-500`}> Workouts</Text>
+          </Text>
+          <Text
+            style={[
+              tw`text-white   font-bold tracking-wide`,
+              { fontSize: hp(5) },
+            ]}
+          >
+            For you
+          </Text>
+        </Animated.View>
+        <Animated.View entering={FadeInDown.delay(200).springify()}>
+          <TouchableOpacity
+          onPress={()=> router.push('home')}
+          style={[
+              tw`bg-rose-500  flex items-center justify-center mx-auto rounded-full border-[2px] border-neutral-200`,
+              { height: hp(7), width: wp(80) },
+            ]}>
+            <Text style={[
+              tw`text-white   font-bold tracking-widest`,
+              { fontSize: hp(3) },
+            ]}>
+              Get Started
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </LinearGradient>
     </View>
   );
 }
