@@ -34,6 +34,7 @@
 // });
 
 import React from "react";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
@@ -41,16 +42,16 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-// import tailwindcss from "tailwindcss"
 import tw from "twrnc";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Animated ,{ FadeIn, FadeInDown, FadeOut } from 'react-native-reanimated';
+import Animated ,{  FadeInDown } from 'react-native-reanimated';
 import { useRouter } from "expo-router";
 
 export default function Index() {
   const router = useRouter();
   return (
-    <View style={{ flex: 1, justifyContent: "center" }}>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: "center" }}>
       <StatusBar barStyle="light-content" />
       <Image
         style={{ height: "100%", width: "100%", position: "absolute" }}
@@ -103,5 +104,6 @@ export default function Index() {
         </Animated.View>
       </LinearGradient>
     </View>
+    </GestureHandlerRootView>
   );
 }
