@@ -6,6 +6,7 @@ import tw from "twrnc";
 import {widthPercentageToDP as wp,heightPercentageToDP as hp,} from "react-native-responsive-screen";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ImageSlider from "./../components/ImageSlider"
+import BodyParts from './../components/BodyParts'
 export default function home() {
   return (
     <SafeAreaView
@@ -35,6 +36,9 @@ export default function home() {
       {/* image slider */}
       <View>
       <ImageSlider/>
+      </View>
+      <View style={tw`flex-1  `}>
+       <BodyParts/>
       </View>
     </SafeAreaView>
   );

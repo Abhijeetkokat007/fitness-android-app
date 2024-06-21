@@ -46,31 +46,50 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 const { width: screenWidth } = Dimensions.get('window');
 
 const ImageSlider = () => {
-  const imageHeight = 500;
+  const imageHeight =' 500px';
   return (
     <View style={styles.container}>
       <View style={styles.carouselContainer}>
         <SimpleCarousel 
           data={[
             {
-              title: 'Hokkaido',
+              title: 'back',
               source: 'https://wallpapercave.com/wp/wp4659392.jpg',
             },
             {
-              title: 'Tokyo',
+              title: 'cardio',
               source: 'https://images.pexels.com/photos/868483/pexels-photo-868483.jpeg?cs=srgb&dl=active-aerobics-balance-868483.jpg&fm=jpg',
             },
             {
-              title: 'Osaka',
+              title: 'chest',
               source: 'https://www.lakeshoresf.com/wp-content/uploads/2021/04/Kids-Fitness-Training-Lincoln-Park-Chicago-scaled.jpeg',
             },
             {
-              title: 'Kyoto',
+              title: 'lower arms',
               source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
             },
             {
-              title: 'Shimane',
+              title: 'lower legs',
               source: 'https://www.fyzical.com/littleton-co/media/img/403564/Fitness_and_Wellness.jpg',
+            },
+            {
+              title: 'neck',
+              source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
+            },
+            {
+              title: 'shoulders',
+              source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
+            },
+            {
+              title: 'upper arms',
+              source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
+            },
+            {
+              title: 'upper legs',
+              source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
+            },{
+              title: 'waist',
+              source: 'https://images8.alphacoders.com/110/thumb-1920-1106033.jpg',
             }
           ]}
           renderItem={(props, index, itemWidth) => {
@@ -105,7 +124,7 @@ const styles = StyleSheet.create({
   carouselContainer: {
     paddingVertical: 12,
     width: '100%',
-    height: '500px',
+    // height: '500px',
     alignItems: 'center',
     justifyContent: 'center',
 
